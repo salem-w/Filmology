@@ -1,0 +1,18 @@
+<GridView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/gridview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="fill"
+    android:numColumns="auto_fit"
+    android:paddingTop="@dimen/poster_padding"
+    android:paddingBottom="@dimen/poster_padding"
+    android:paddingRight="@dimen/poster_padding"
+    android:paddingLeft="@dimen/poster_padding"
+    tools:context=".MainActivityFragment"
+    android:orientation="vertical"
+    android:textAlignment="center"
+    android:stretchMode="spacingWidthUniform">
+
+
+</GridView>
