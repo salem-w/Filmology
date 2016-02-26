@@ -1,18 +1,53 @@
-<GridView xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/gridview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="fill"
-    android:numColumns="auto_fit"
-    android:paddingTop="@dimen/poster_padding"
-    android:paddingBottom="@dimen/poster_padding"
-    android:paddingRight="@dimen/poster_padding"
-    android:paddingLeft="@dimen/poster_padding"
-    tools:context=".MainActivityFragment"
-    android:orientation="vertical"
-    android:textAlignment="center"
-    android:stretchMode="spacingWidthUniform">
+    android:orientation="vertical">
 
 
-</GridView>
+    <GridView
+        android:id="@+id/gridview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnWidth="@dimen/poster_width"
+        android:gravity="center"
+
+        android:numColumns="2"
+
+        android:stretchMode="spacingWidthUniform"
+
+        android:textAlignment="center"
+
+        android:verticalSpacing="@dimen/poster_padding"
+        tools:context=".MainActivityFragment"
+        />
+
+    <TextView
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/loading"
+        style="@style/TextAppearance.AppCompat.Button"
+        android:background="@android:color/background_light"
+        android:alpha="0.4"
+        android:enabled="true"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="false"
+        android:gravity="center"
+        android:paddingTop="@dimen/abc_dialog_padding_top_material"
+        android:paddingBottom="@dimen/abc_dialog_padding_top_material" />
+
+    <!--
+android:horizontalSpacing="@dimen/poster_padding"
+android:paddingLeft="@dimen/activity_horizontal_margin"
+android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+android:paddingBottom="@dimen/activity_vertical_margin"
+-->
+
+
+</RelativeLayout>

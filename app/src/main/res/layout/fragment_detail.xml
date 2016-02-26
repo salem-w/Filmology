@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    </ScrollView>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:weightSum="1">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_text_value"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Title"
+            android:id="@+id/titleTextView"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="#0e99a3"
+            android:textSize="@dimen/title_text_size"
+            android:textColor="#000000"
+            android:gravity="left|center_vertical|center_horizontal" />
+
+        <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    android:text="Medium Text"
+    android:id="@+id/runtimeTextView"
+    android:layout_below="@+id/textView3"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="70dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="40dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:layout_marginLeft="@dimen/image_margins" />
+
+        <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    android:text="Medium Text"
+    android:id="@+id/yearTextView"
+    android:layout_marginTop="@dimen/spacing_between"
+    android:layout_alignTop="@+id/imageView"
+    android:layout_alignLeft="@+id/textView4"
+    android:layout_alignStart="@+id/textView4"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="40dp" />
+
+        <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:text="Small Text"
+    android:id="@+id/ratingTextView"
+    android:layout_below="@+id/textView4"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="@dimen/spacing_between"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="40dp" />
+
+        <TextView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:text="Large Text"
+    android:id="@+id/summaryTextView"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_weight="0.18"
+            android:layout_marginTop="100dp" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -4,8 +4,15 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="image_margins">16dp</dimen>
 
-    <dimen name ="poster_width">154dp</dimen>
-    <dimen name="poster_height">231dp</dimen>
+    <dimen name ="poster_width">185dp</dimen>
+    <dimen name="poster_height">277dp</dimen>
 
     <dimen name="poster_padding">4dp</dimen>
+    <dimen name="detail_image_val">30dp</dimen>
+    <dimen name="title_text_value">140dp</dimen>
+    <dimen name="title_text_size">60sp</dimen>
+    <dimen name="spacing_between">15dp</dimen>
+    <dimen name="image_width">92dp</dimen>
+    <dimen name="image_height">138dp</dimen>
+    <dimen name="format_val">150dp</dimen> />
 </resources>

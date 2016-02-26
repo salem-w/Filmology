@@ -1,16 +1,20 @@
 package wsalem.com.popularmoviesapp;
-
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.preference.PreferenceManager;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+      //  PreferenceManager.setDefaultValues(this, R.xml.pref_main, false);
+
         setContentView(R.layout.activity_main);
     }
 
@@ -30,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+       if (id == R.id.action_settings) {
+        //    startActivity(new Intent(this, SettingsActivity.class));
             return true;
         }
 
