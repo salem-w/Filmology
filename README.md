@@ -3,8 +3,10 @@ An application that shows the popular movies at the current time.
 
 #To Compile and Run
 
-To compile the program and run it you must obtain API through here --> https://www.themoviedb.org/documentation/api
-and once you obtain the API key you can place it into the recommended location of the app's build.gradle file. **_WARNING_**: Not the module build.gradle file. Leave the single quote ' followed by the double quotes " otherwise you will obtain weird errors. So it should look like '"Your api key here"'.
+To compile the program and run it you must obtain API through [here](https://www.themoviedb.org/documentation/api)
+and once you obtain the API key you can place it into the recommended location of the app's build.gradle file.
+
+**_WARNING_**: Not the module build.gradle file. Leave the single quote ' followed by the double quotes " otherwise you will obtain weird errors. So it should look like '"Your api key here"'.
 
 #TODO
 
@@ -14,4 +16,4 @@ and once you obtain the API key you can place it into the recommended location o
 
 #Bugs
 
-1) The app seems to load the same page twice then begins to behave normally, I will fix this bug as soon as possible.
+The current version is stable and no bugs have risen yet.
