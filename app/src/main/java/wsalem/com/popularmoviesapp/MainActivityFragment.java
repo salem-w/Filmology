@@ -28,19 +28,15 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import wsalem.com.popularmoviesapp.Movie;
 
 
-/**
- * A placeholder fragment containing a simple view.
- */
 public class MainActivityFragment extends Fragment {
 
     public MainActivityFragment() {
     }
 
     private boolean isLoading = false;
-    private int pages = 1;
+    private int pages = 0;
     private TextView loadingTextView;
     private MovieAdapter movieAdapter;
 
@@ -48,6 +44,14 @@ public class MainActivityFragment extends Fragment {
 
         public  final String LOG_TAG = FetchCatalogTask.class.getSimpleName();
 
+        /**
+         * This method establishes a connection with themoviedb.org api and places the JSON
+         * response into a string
+         * @param params
+         * @return
+         *     - This calls the method fetchMoviesFromJson which parses the JSON string and
+         *      returns of a type object called Movie
+         */
         @Override
         protected Collection<Movie> doInBackground(Integer... params) {
             if (params.length == 0) {
@@ -128,6 +132,16 @@ public class MainActivityFragment extends Fragment {
             }
         }
 
+        /**
+         * This method creates JSON objects that parse the JSON response and places the objects
+         * into an arraylist
+         * @param jsonStr
+         *    - This is the string passed frome method doInBackground, it contains the JSON
+         *    Response
+         * @return
+         *     - This method returns an arraylist containing all the JSON data
+         * @throws JSONException
+         */
         private Collection<Movie> fetchMoviesFromJson(String jsonStr) throws JSONException {
             final String KEY_MOVIES = "results";
 
@@ -142,9 +156,15 @@ public class MainActivityFragment extends Fragment {
             return result;
         }
 
+        /**
+         * This method calls quitLoading and adds all the data into the movieAdapter
+         * @param movies
+         *     - This parameter contains the data returned from doInBackground, if it is null
+         *     then there was an error fetching the images so it will display an error toast
+         */
         @Override
-        protected void onPostExecute(Collection<Movie> xs) {
-            if (xs == null) {
+        protected void onPostExecute(Collection<Movie> movies) {
+            if (movies == null) {
                 Toast.makeText(
                         getActivity(),
                         getString(R.string.error_message),
@@ -159,11 +179,15 @@ public class MainActivityFragment extends Fragment {
 
             quitLoading();
 
-            movieAdapter.addAll(xs);
+            movieAdapter.addAll(movies);
         }
 
     }
 
+    /**
+     * This method is called during start up of the app, it executes the FetchCatalogTask class
+     * also each time the user reaches the bottom of the screen it sets the textview to visible
+     */
     private void begin() {
         if (isLoading) {
             return;
@@ -175,9 +199,13 @@ public class MainActivityFragment extends Fragment {
             loadingTextView.setVisibility(View.VISIBLE);
         }
 
-        new FetchCatalogTask().execute(pages + 1);
+        new FetchCatalogTask().execute(pages++);
     }
 
+    /**
+     * This method quits loading the page if necessary, it also sets the textview visibility to
+     * gone
+     */
     private void quitLoading() {
         if (!isLoading) {
             return;
@@ -190,6 +218,15 @@ public class MainActivityFragment extends Fragment {
         }
     }
 
+    /**
+     * This method calls the MovieAdapter and instantiates the activity. This method also prepares
+     * the gridview, calls quitloading
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     *     - Return the view to display and inflate the GUI
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -205,6 +242,12 @@ public class MainActivityFragment extends Fragment {
         return rootView;
     }
 
+    /**
+     * This method prepares the gridView by setting the adapter, and instantiates two anonymous
+     * classes that activate when the user clicks on an imageview or scrolls to the bottom of the
+     * page respectively.
+     * @param view
+     */
     private void prepareGrid(View view) {
         GridView grid = (GridView) view.findViewById(R.id.gridview);
 

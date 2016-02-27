@@ -7,31 +7,43 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * Created by Acer on 2/21/2016.
+ * Created by salem-w on 2/21/2016.
  */
 public class Movie {
     public static final String POSTER_PATH = "poster_path";
     public static final String MOVIE_ID = "id";
+    public static final String MOVIE_TITLE = "title";
+    public static final String MOVIE_OVERVIEW = "overview";
+
 
     public final String poster_path;
     public final long id;
+    public final String movie_title;
+    public final String overview;
 
-    public Movie(long id ,String poster_path)
+    public Movie(long id ,String poster_path, String movie_title, String overview)
     {
         this.id = id;
         this.poster_path = poster_path;
+        this.movie_title = movie_title;
+        this.overview = overview;
     }
     public Movie(Bundle bundle){
 
         this(
                 bundle.getLong(MOVIE_ID),
-                bundle.getString(POSTER_PATH));
+                bundle.getString(POSTER_PATH),
+                bundle.getString(MOVIE_TITLE),
+                bundle.getString(MOVIE_OVERVIEW));
     }
     public Bundle toBundle(){
         Bundle bundle = new Bundle();
 
         bundle.putLong(MOVIE_ID, id);
         bundle.putString(POSTER_PATH, poster_path);
+        bundle.putString(MOVIE_TITLE, movie_title);
+        bundle.putString(MOVIE_OVERVIEW, overview );
+
 
         return bundle;
     }
@@ -39,7 +51,9 @@ public class Movie {
     public static Movie getFromJson(JSONObject movieObject) throws JSONException {
         return  new Movie(
                 movieObject.getLong(MOVIE_ID),
-                movieObject.getString(POSTER_PATH));
+                movieObject.getString(POSTER_PATH),
+                movieObject.getString(MOVIE_TITLE),
+                movieObject.getString(MOVIE_OVERVIEW));
     }
 
     public Uri getMovieCover(){

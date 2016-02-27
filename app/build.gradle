@@ -19,7 +19,7 @@ android {
         }
     }
     buildTypes.each {
-        it.buildConfigField 'String', 'MOVIE_DB_API_KEY', '"API KEY GOES HERE WITHIN THESE QUOTES"'
+        it.buildConfigField 'String', 'MOVIE_DB_API_KEY', '"API KEY GOES IN HERE"'
     }
 }
 

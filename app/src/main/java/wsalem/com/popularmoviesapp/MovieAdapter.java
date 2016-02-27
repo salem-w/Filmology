@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 /**
- * Created by Acer on 2/21/2016.
+ * Created by salem-w on 2/21/2016.
  */
 public class MovieAdapter extends BaseAdapter {
         private final String LOG_TAG = MovieAdapter.class.getSimpleName();
