@@ -6,4 +6,19 @@
     <string name="error_message">Error contacting server!</string>
     <string name="loading">Loading...</string>
     <string name="title_activity_detail">Details</string>
+    <string name="pref_sort_label">Sort by</string>
+    <string name="pref_sort_key" translatable = "false">Sorted by</string>
+    <string name="pref_sort_rated" translatable = "false">Top Rated</string>
+    <string name="pref_sort_default" translatable = "false">Popular</string>
+    <string name="title_activity_settings">Settings</string>
+    
+    <string-array name="pref_sort_list_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    
+    <string-array name="pref_sort_list">
+        <item>Top Rated</item>
+        <item>Popular</item>
+    </string-array>
 </resources>

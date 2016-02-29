@@ -1,5 +1,5 @@
 # Filmology
-An application that shows the popular movies at the current time.
+An application that shows the popular movies at the current time, the app is based on the Popular Movies App proposed by the Udacity final project from the Udacity Android Programming Nanodegree found [here](https://www.udacity.com/course/android-developer-nanodegree--nd801).
 
 #To Compile and Run
 

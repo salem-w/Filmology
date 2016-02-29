@@ -1,9 +1,11 @@
 package wsalem.com.popularmoviesapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,7 +15,6 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,7 +41,7 @@ public class MainActivityFragment extends Fragment {
     private TextView loadingTextView;
     private MovieAdapter movieAdapter;
 
-    private class FetchCatalogTask extends AsyncTask<Integer, Void, Collection<Movie>> {
+    private class FetchCatalogTask extends AsyncTask<Integer, String, Collection<Movie>> {
 
         public  final String LOG_TAG = FetchCatalogTask.class.getSimpleName();
 
@@ -64,14 +65,20 @@ public class MainActivityFragment extends Fragment {
             String responseJsonStr = null;
 
             try {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                String sortBy = prefs.getString(getString(R.string.pref_sort_key), getString(R.string.pref_sort_default));
                 final String API_BASE_URL = "http://api.themoviedb.org/3/movie/";
-                final String API_PATH_TOP_RATED = "top_rated";
-                final String API_PATH_POPULAR = "popular";
+                final String API_PATH_SORTED;
+                if(sortBy.equals("Top Rated")) {
+                    API_PATH_SORTED = "top_rated";
+                }else {
+                    API_PATH_SORTED = "popular";
+                }
                 final String API_PARAM_PAGE = "page";
                 final String API_PARAM_KEY = "api_key";
 
                 Uri builtUri = Uri.parse(API_BASE_URL).buildUpon()
-                        .appendPath(API_PATH_POPULAR)
+                        .appendPath(API_PATH_SORTED)
                         .appendQueryParameter(API_PARAM_PAGE, String.valueOf(page))
                         .appendQueryParameter(API_PARAM_KEY, BuildConfig.MOVIE_DB_API_KEY)
                         .build();
@@ -159,17 +166,12 @@ public class MainActivityFragment extends Fragment {
         /**
          * This method calls quitLoading and adds all the data into the movieAdapter
          * @param movies
-         *     - This parameter contains the data returned from doInBackground, if it is null
-         *     then there was an error fetching the images so it will display an error toast
+         *     - This parameter contains the data returned from doInBackground
          */
         @Override
         protected void onPostExecute(Collection<Movie> movies) {
             if (movies == null) {
-                Toast.makeText(
-                        getActivity(),
-                        getString(R.string.error_message),
-                        Toast.LENGTH_SHORT
-                ).show();
+
 
                 quitLoading();
                 return;
